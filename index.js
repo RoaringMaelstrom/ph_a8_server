@@ -1,0 +1,11 @@
+const express = require("express");
+const dotenv = require("dotenv");
+const cors = require("cors");
+const app = express();
+dotenv.config();
+const port = process.env.PORT;
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
+const uri = process.env.MONGO_URI;
+app.use(cors());
+app.use(express.json());
+const { jwtVerify, createRemoteJWKSet } = require("jose-cjs");
